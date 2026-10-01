@@ -1,0 +1,279 @@
+/* ==========================================================
+   Portfólio profissional - Gustavo Cardoso Munhoz Silva
+   Estilo: fundo claro, preto no cabeçalho e no rodapé,
+   verde como cor de destaque.
+   ========================================================== */
+
+/* 1. CORES E MEDIDAS (para trocar o visual, altere só aqui) */
+:root {
+    --preto: #111513;          /* cabeçalho, rodapé e títulos */
+    --verde: #0f7b4b;          /* botões e destaques sobre fundo claro */
+    --verde-escuro: #0b5e39;   /* links e textos verdes sobre fundo claro */
+    --verde-claro: #4fe39b;    /* destaques sobre fundo preto */
+    --fundo: #f2f6f3;          /* fundo da página */
+    --cartao: #ffffff;         /* fundo dos cartões */
+    --borda: #d3dfd7;          /* contorno dos cartões */
+    --texto: #1b211e;          /* texto principal */
+    --texto-suave: #46524b;    /* texto secundário */
+  
+    --raio: 12px;
+    --largura: 1040px;
+    --fonte: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  
+  /* 2. BASE */
+  *, *::before, *::after { box-sizing: border-box; }
+  
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 1rem;
+  }
+  
+  body {
+    margin: 0;
+    font-family: var(--fonte);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--texto);
+    background: var(--fundo);
+  }
+  
+  img { max-width: 100%; height: auto; }
+  
+  h1, h2, h3 { line-height: 1.2; color: var(--preto); margin: 0 0 .6rem; }
+  p { margin: 0 0 1rem; }
+  
+  a { color: var(--verde-escuro); text-underline-offset: 3px; }
+  a:hover { color: var(--preto); }
+  
+  /* Foco visível para quem navega pelo teclado */
+  :focus-visible {
+    outline: 3px solid var(--verde);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  
+  /* Link "Ir para o conteúdo": aparece só quando recebe foco */
+  .pular-menu {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 10;
+    padding: .6rem 1rem;
+    background: var(--verde-claro);
+    color: var(--preto);
+    font-weight: 700;
+    border-radius: 8px;
+  }
+  .pular-menu:focus { top: 1rem; }
+  
+  /* 3. CABEÇALHO (preto) */
+  .cabecalho {
+    background: var(--preto);
+    color: #fff;
+    border-bottom: 5px solid var(--verde);
+  }
+  
+  .cabecalho-conteudo {
+    max-width: var(--largura);
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  
+  .cabecalho h1 {
+    color: #fff;
+    font-size: clamp(1.9rem, 4.5vw, 3rem);
+    letter-spacing: -0.02em;
+  }
+  
+  .titulo-profissional {
+    margin: 0;
+    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+    color: var(--verde-claro);
+  }
+  
+  .foto-perfil {
+    flex-shrink: 0;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 4px solid var(--verde-claro);
+    object-fit: cover;
+    background: #fff;
+  }
+  
+  /* Menu de navegação */
+  .menu {
+    max-width: var(--largura);
+    margin: 0 auto;
+    padding: 0 1.25rem 1.25rem;
+  }
+  
+  .menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 1rem 0 0;
+    border-top: 1px solid #2c3631;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+  }
+  
+  .menu a {
+    display: inline-block;
+    padding: .4rem .7rem;
+    color: #fff;
+    text-decoration: none;
+    font-size: .9rem;
+    border-radius: 999px;
+    border: 1px solid #3a4640;
+  }
+  
+  .menu a:hover {
+    background: var(--verde-claro);
+    border-color: var(--verde-claro);
+    color: var(--preto);
+  }
+  
+  /* No fundo preto, o foco usa o verde claro (contraste melhor) */
+  .cabecalho :focus-visible,
+  .rodape :focus-visible { outline-color: var(--verde-claro); }
+  
+  /* 4. CONTEÚDO */
+  main {
+    max-width: var(--largura);
+    margin: 0 auto;
+    padding: 1rem 1.25rem 3rem;
+  }
+  
+  .secao { padding: 2.25rem 0 .5rem; }
+  
+  .secao h2 {
+    font-size: clamp(1.5rem, 3vw, 1.9rem);
+    padding-left: .8rem;
+    border-left: 6px solid var(--verde);
+    margin-bottom: 1.1rem;
+  }
+  
+  .secao > p,
+  .lista-simples { max-width: 70ch; }
+  
+  .lista-simples { margin: 0 0 1rem; padding-left: 1.25rem; }
+  .lista-simples li { margin-bottom: .35rem; }
+  .lista-simples li::marker { color: var(--verde); }
+  
+  /* Apresentação em destaque */
+  .apresentacao {
+    margin-top: 1.5rem;
+    padding: 1.75rem;
+    background: var(--cartao);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+    font-size: 1.15rem;
+  }
+  .apresentacao > p { max-width: 62ch; }
+  
+  /* 5. BOTÕES */
+  .botoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin: 1.25rem 0 0;
+  }
+  
+  .botao {
+    display: inline-block;
+    padding: .7rem 1.3rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--verde-escuro);
+    background: #fff;
+    border: 2px solid var(--verde);
+    border-radius: 999px;
+  }
+  .botao:hover { background: var(--verde-escuro); border-color: var(--verde-escuro); color: #fff; }
+  
+  .botao-principal { background: var(--verde); border-color: var(--verde); color: #fff; }
+  .botao-principal:hover { background: var(--preto); border-color: var(--preto); }
+  
+  /* 6. FORMAÇÃO */
+  .item-formacao {
+    max-width: 70ch;
+    margin-bottom: 1.25rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--borda);
+  }
+  .item-formacao h3 { font-size: 1.15rem; margin-bottom: .2rem; }
+  .item-formacao p { color: var(--texto-suave); margin-bottom: .5rem; }
+  
+  /* 7. CARTÕES (competências e projeto) */
+  .grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+  
+  .cartao {
+    background: var(--cartao);
+    border: 1px solid var(--borda);
+    border-top: 4px solid var(--verde);
+    border-radius: var(--raio);
+    padding: 1.25rem 1.4rem;
+  }
+  .cartao h3 { font-size: 1.15rem; }
+  .cartao p:last-child,
+  .cartao .lista-simples:last-child { margin-bottom: 0; }
+  
+  /* Cartão do projeto: centralizado e mais largo */
+  .cartao-projeto {
+    max-width: 760px;
+    margin: 0 auto;
+    border-top-color: var(--preto);
+  }
+  .cartao-projeto img { display: block; border-radius: 8px; margin-bottom: 1rem; }
+  
+  .etiqueta {
+    display: inline-block;
+    margin: 0 0 .9rem;
+    padding: .15rem .75rem;
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--preto);
+    background: var(--verde-claro);
+    border-radius: 999px;
+  }
+  
+  /* 8. RODAPÉ (preto) */
+  .rodape {
+    background: var(--preto);
+    color: #d9e2dd;
+    border-top: 5px solid var(--verde);
+    padding: 2rem 1.25rem;
+    text-align: center;
+    font-size: .95rem;
+  }
+  .rodape p { margin: 0 0 .4rem; }
+  .rodape a { color: var(--verde-claro); }
+  .rodape a:hover { color: #fff; }
+  
+  /* 9. CELULARES E TELAS PEQUENAS */
+  @media (max-width: 640px) {
+    .cabecalho-conteudo {
+      flex-direction: column-reverse;
+      text-align: center;
+      padding-top: 2rem;
+    }
+    .menu ul { justify-content: center; }
+    .apresentacao { padding: 1.25rem; font-size: 1.05rem; }
+    .botoes { flex-direction: column; }
+    .botao { text-align: center; }
+  }
+  
+  /* 10. RESPEITA QUEM PREFERE MENOS MOVIMENTO */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
